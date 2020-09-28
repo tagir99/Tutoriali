@@ -1,9 +1,9 @@
 def solve(a,b):
-    global how_many_one
-    how_many_one = 0
+    global how_many_zn
+    how_many_zn = 0
 
-    lst = [2]
-    for i in range(3, b + 1, 2):
+    lst = [a+1]
+    for i in range(a+2, b + 1, 2):
         if (i > 10) and (i % 10 == 5):
             continue
         for j in lst:
@@ -15,6 +15,8 @@ def solve(a,b):
         else:
             lst.append(i)
 
+    print(lst)
+
 
     for n in lst:
 
@@ -25,21 +27,24 @@ def solve(a,b):
                 n = int(n[0]) ** 2
                 n = str(n)
 
-            if len(n) == 3:
-                n = n + str(0)
-                n = int(n[0]) ** 2 + int(n[1]) ** 2 + int(n[2])
-                n = str(n)
-
-            if len(n) == 2:
+            elif len(n) == 2:
                 n = int(n[0]) ** 2 + int(n[1]) ** 2
                 n = str(n)
 
+            elif len(n) == 3:
+
+                n = int(n[0])** 2 + int(n[1])** 2 + int(n[2])**2
+                n = str(n)
+
+            elif len(n) == 4:
+                n = int(n[0])** 2 + int(n[1])** 2 + int(n[2])**2 + int(n[3])**2
+
             if n == '1':
-                how_many_one = how_many_one + 1
+                how_many_zn = how_many_zn + 1
                 break
             if i == 10:
                 break
 
-    return how_many_one
+    return how_many_zn
 
-print(solve(1,100))
+print(solve(100,1000))
